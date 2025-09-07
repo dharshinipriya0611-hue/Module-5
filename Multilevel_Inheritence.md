@@ -27,46 +27,33 @@ To write a Python program that uses multilevel inheritance to get and display a 
 
 ## Program
 ~~~
-class Person:  
-    #defining constructor  
-    def __init__(self, personName, personAge):  
-        self.name = personName  
-        self.age = personAge  
-  
-    #defining class methods  
-    def showName(self):  
-        print(self.name)  
-  
-    def showAge(self):  
-        print(self.age)  
-  
-    #end of class definition  
-  
-# defining another class  
-class Student: # Person is the  
-    def __init__(self, studentId):  
-        self.studentId = studentId  
-  
-    def getId(self):  
-        return self.studentId  
-  
-  
-class Resident(Person, Student): # extends both Person and Student class  
-    def __init__(self, name, age, id):  
-        Person.__init__(self, name, age)  
-        Student.__init__(self, id)  
-  
-  
+class Parent:
+   def __init__(self,name):
+     self.name = name
+   def getName(self):
+     return self.name
+class Child(Parent):
+   def __init__(self,name,age):
+     Parent.__init__(self,name)
+     self.age = age
+   def getAge(self):
+     return self.age
+class Grandchild(Child):
+   def __init__(self,name,age,location):
+     Child.__init__(self,name,age)
+     self.location=location
+   def getLocation(self):
+     return self.location
 name=input()
 age=int(input())
-id=int(input())
-resident1 = Resident(name, age, id)  
-resident1.showName()  
-resident1.showAge()  
-print(resident1.getId())
-~~~  
+loc=input()
+gc = Grandchild(name,age,loc)
+print(gc.getName(), gc.getAge(), gc.getLocation())
+~~~
 
 ## Sample Output
-<img width="406" height="200" alt="image" src="https://github.com/user-attachments/assets/1b3e3ae3-1356-4d7b-9a21-d5b9dc936a4d" />
+
+<img width="584" height="181" alt="image" src="https://github.com/user-attachments/assets/f59e1195-c99d-4bed-82b6-f0c472869288" />
+
 
 
